@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      background-color: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #0984e3;
+      outline: none;
+      box-shadow: 0 0 5px #74b9ff;
+    }
+
+    button {
+      background-color: #00b894;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #019170;
+    }
+
+    h2 {
+      color: #2d3436;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 20px;">
+      {% for message in messages %}
+        <div style="
+         background: linear-gradient(90deg, #4facfe, #00f2fe);
+          color: #ffffff;
+          width: 80%;
+          max-width: 450px;
+          padding: 14px 18px;
+          margin: 8px 0;
+          border-radius: 10px;
+          font-family: 'Segoe UI', sans-serif;
+          font-size: 15px;
+          font-weight: 500;
+          letter-spacing: 0.3px;
+          text-align: center;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          transition: all 0.4s ease;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<body>
+
+  <form method="post">
+    <h2>User Registration</h2>
+    <input type="text" name="username" placeholder="Enter username" required /><br>
+    <input type="email" name="usermail" placeholder="Enter usermail" required /><br>
+    <input type="password" name="password" placeholder="Enter password" required /><br>
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>

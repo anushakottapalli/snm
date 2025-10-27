@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* Page styling */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Card container */
+    .card {
+      background-color: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    /* Heading */
+    h1 {
+      color: #2d3436;
+      margin-bottom: 25px;
+    }
+
+    /* Buttons */
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s;
+      margin: 10px;
+      width: 120px;
+    }
+
+    /* Sign In button */
+    .signin {
+      background-color: #00b894;
+    }
+
+    .signin:hover {
+      background-color: #019170;
+    }
+
+    /* Sign Up button */
+    .signup {
+      background-color: #0984e3;
+    }
+
+    .signup:hover {
+      background-color: #0667b4;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Welcome</h1>
+    <a href="{{ url_for('userlogin') }}">
+    <button class="signin">Sign In</button>
+    </a>
+    <a href="{{ url_for('register') }}">
+      <button class="signup">Sign Up</button>
+    </a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login</title>
+
+  <style>
+    /* General page styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    /* Centered form box */
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    /* Heading */
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+      letter-spacing: 1px;
+    }
+
+    /* Input fields */
+    input[type="mail"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    input[type="mail"]:focus,
+    input[type="password"]:focus {
+      border-color: #2575fc;
+      outline: none;
+      box-shadow: 0 0 6px rgba(37, 117, 252, 0.5);
+    }
+
+    /* Submit button */
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2575fc;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #1b5edc;
+      transform: scale(1.02);
+    }
+
+    /* Forgot password link */
+    a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #2575fc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Flash messages */
+    .flash-message {
+      color: #ff0000;
+      background: #fff3f3;
+      border: 1px solid #ffb3b3;
+      border-radius: 5px;
+      padding: 8px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Animation for smooth entrance */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <h2>User Login</h2>
+    <form method="post">
+      <input type="mail" name="usermail" placeholder="Enter User Email" required><br>
+      <input type="password" name="password" placeholder="Enter Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+
+    <a href="{{ url_for('fgtpwd') }}">Forgot Password?</a>
+  </div>
+</body>
+</html>
